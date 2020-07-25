@@ -5,19 +5,19 @@
 		"answers": [
 			{
 				"answerText": "\"But doctor, wouldn't that cause a parabolic destabilization of the fission singularity?\"",
-				"answerAttribute": "Science"
+				"answerAttribute": ["Science", "Nothing"]
 			},
 			{
 				"answerText": "\"Yeah? Up yours too, buddy!\"",
-				"answerAttribute": "Speech"
+				"answerAttribute": ["Speech"]
 			},
 			{
 				"answerText": "Say nothing, grab a nearby pipe and hit the scientist in the head to knock him out. For all you knew, he was planning to blow up the vault.",
-				"answerAttribute": "Melee-Weapons"
+				"answerAttribute": ["Melee-Weapons"]
 			},
 			{
 				"answerText": "Say nothing, but slip away before the scientist can continue his rant.",
-				"answerAttribute": "Sneak"
+				"answerAttribute": ["Sneak"]
 			}
 		]
 	},
@@ -27,19 +27,19 @@
 		"answers": [
 			{
 				"answerText": "Amputate the foot before the infection spreads",
-				"answerAttribute": "Melee-Weapons"
+				"answerAttribute": ["Melee-Weapons"]
 			},
 			{
 				"answerText": "Scream for help",
-				"answerAttribute": "Speech"
+				"answerAttribute": ["Speech"]
 			},
 			{
 				"answerText": "Medicate the infected area to the best of your abilities",
-				"answerAttribute": "Medicine"
+				"answerAttribute": ["Medicine"]
 			},
 			{
 				"answerText": "Restrain the patient, and merely observe as the infection spreads",
-				"answerAttribute": "Science"
+				"answerAttribute": ["Science"]
 			}
 		]
 	},
@@ -49,19 +49,19 @@
 		"answers": [
 			{
 				"answerText": "Give the boy a hug and tell him everything will be okay",
-				"answerAttribute": "Speech"
+				"answerAttribute": ["Speech"]
 			},
 			{
 				"answerText": "Confiscate the property by force, and leave him there as punishment",
-				"answerAttribute": "Unarmed"
+				"answerAttribute": ["Unarmed"]
 			},
 			{
 				"answerText": "Pick the boy's pocket to take the stolen property for yourself, and leave the boy to his fate",
-				"answerAttribute": "Sneak"
+				"answerAttribute": ["Sneak"]
 			},
 			{
 				"answerText": "Lead the boy to safety, then turn him over to the overseer",
-				"answerAttribute": "Nothing"
+				"answerAttribute": ["Nothing"]
 			}
 		]
 	},
@@ -71,19 +71,19 @@
 		"answers": [
 			{
 				"answerText": "Pitcher",
-				"answerAttribute": "Explosives"
+				"answerAttribute": ["Explosives"]
 			},
 			{
 				"answerText": "Catcher",
-				"answerAttribute": "Big-Guns"
+				"answerAttribute": ["Big-Guns"]
 			},
 			{
 				"answerText": "Designated Hitter",
-				"answerAttribute": "Melee-Weapons"
+				"answerAttribute": ["Melee-Weapons"]
 			},
 			{
 				"answerText": "None, you wish the vault had a soccer team",
-				"answerAttribute": "Unarmed"
+				"answerAttribute": ["Unarmed"]
 			}
 		]
 	},
@@ -93,19 +93,19 @@
 		"answers": [
 			{
 				"answerText": "Obey your elder and kill the Vault resident with the pistol.",
-				"answerAttribute": "Small-Guns"
+				"answerAttribute": ["Small-Guns"]
 			},
 			{
 				"answerText": "Offer your most prized possession for the resident's life.",
-				"answerAttribute": "Barter"
+				"answerAttribute": ["Barter"]
 			},
 			{
 				"answerText": "Ask granny for a minigun instead. After all, you don't want to miss.",
-				"answerAttribute": "Big-Guns"
+				"answerAttribute": ["Big-Guns"]
 			},
 			{
 				"answerText": "Throw your tea in granny's face.",
-				"answerAttribute": "Explosives"
+				"answerAttribute": ["Explosives"]
 			}
 		]
 	},
@@ -115,7 +115,7 @@
 		"answers": [
 			{
 				"answerText": "Use a bobby pin to pick the lock on the door.",
-				"answerAttribute": "Lockpick"
+				"answerAttribute": ["Lockpick"]
 			},
 			{
 				"answerText": "Trade a Vault hoodlum for his cherry bomb and blow open the lock.",

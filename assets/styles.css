@@ -23,6 +23,17 @@ body {
 .btn:hover { 
   border: 3px solid green;
 }
+
+.start-screen { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
 .hide { 
   display: none;
 }
