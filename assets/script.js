@@ -1,4 +1,4 @@
-resultAttributes = { 
+const resultAttributes = { 
   "Science": 0, 
   "Speech": 0, 
   "Melee-Weapons": 0, 
@@ -14,14 +14,16 @@ resultAttributes = {
   "Energy-Weapons": 0,
   "Repair": 0   
 }
-
 const startBtn = document.querySelector('#start-btn');
-const username = document.querySelector('#username');
 const startScreen = document.querySelector('.start-screen');
 const questionContainer = document.querySelector('#question-container');
 const questionTextElement = document.querySelector('#question-text');
 const answerBtnsElement = document.querySelector('#answer-buttons');
 const questionIndexElement = document.querySelector('#question-index');
+const quizResultElement = document.querySelector('#quiz-result');
+const tryAgainBtn = document.querySelector('#try-again-button');
+const jobNameField = document.querySelector('#job-name');
+const quoteField = document.querySelector('#quote');
 let questionOrderIndexGlobal = 0;
 
 var requestURL ="assets/questions.json";
@@ -31,7 +33,8 @@ request.responseType = 'json';
 request.send();
 
 request.onload = function() { 
-  questions = request.response;
+  questions = request.response.qst;
+  results = request.response.result; 
   startBtn.addEventListener('click', startGame);  
 }
 
@@ -39,9 +42,13 @@ request.onload = function() {
 
 
 function startGame() { 
-  console.log(username.value);
+  for (let attribute in resultAttributes) { 
+    resultAttributes[attribute] = 0; 
+  }
+  questionOrderIndexGlobal = 0;
   startScreen.classList.add('hide');
   questionContainer.classList.remove('hide');
+  quizResultElement.classList.add('hide');
    
   showNextQuestion(questionOrderIndexGlobal); 
 }
@@ -50,18 +57,22 @@ function startGame() {
 function showNextQuestion(questionOrderIndex) { 
   resetState();
 
-  questionIndexElement.innerText ="Question " + questions[questionOrderIndex].questionIndex;  
-  questionTextElement.innerText = questions[questionOrderIndex].questionText;
-  questions[questionOrderIndex].answers.forEach(answer => {
-    const answerButton = document.createElement('button');
-    answerButton.innerText = answer.answerText;
-    answerButton.classList.add('btn');
-    answerButton.dataset.spec = answer.answerAttribute; 
-    answerButton.addEventListener('click', selectAnswer);
-
-    answerBtnsElement.appendChild(answerButton);
-  }); 
-  questionOrderIndexGlobal++;
+  if (questionOrderIndex === 10) { 
+    showFinal(); 
+  } else {
+    questionIndexElement.innerText ="Question " + questions[questionOrderIndex].questionIndex;  
+    questionTextElement.innerText = questions[questionOrderIndex].questionText;
+    questions[questionOrderIndex].answers.forEach(answer => {
+      const answerButton = document.createElement('button');
+      answerButton.innerText = answer.answerText;
+      answerButton.classList.add('btn');
+      answerButton.dataset.spec = answer.answerAttribute; 
+      answerButton.addEventListener('click', selectAnswer);
+  
+      answerBtnsElement.appendChild(answerButton);
+    }); 
+    questionOrderIndexGlobal++;
+  }
 }
 
 function selectAnswer(e) { 
@@ -74,6 +85,26 @@ function selectAnswer(e) {
   }
   
   showNextQuestion(questionOrderIndexGlobal); 
+}
+
+function showFinal() { 
+  let finalResultAttribute = "";
+  questionContainer.classList.add('hide');
+  quizResultElement.classList.remove('hide');
+  let max = 0;
+  resultAttributes["Nothing"]= 0;
+
+  for (let attribute in resultAttributes) { 
+    if (resultAttributes[attribute] > max) { 
+      finalResultAttribute = attribute; 
+      max = resultAttributes[attribute];
+    }
+  }
+
+  jobNameField.innerText = results[finalResultAttribute].job; 
+  quoteField.innerText = results[finalResultAttribute].quote;
+  console.log(finalResultAttribute);
+  tryAgainBtn.addEventListener('click', startGame); 
 }
 
 function resetState() { 
