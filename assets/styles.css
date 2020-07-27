@@ -89,6 +89,16 @@ button {
   align-items: center;
   flex-direction: column;
 }
+@media all and (max-width: 500px) { 
+  .container { 
+    width: 100vw;
+  }
+  .body { 
+    background-image: url(background-phone1.png);
+    background-position: center;
+    background-size: cover;
+  }
+}
 .hide { 
   display: none;
 }
