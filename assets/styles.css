@@ -7,6 +7,58 @@ body {
   display: flex; 
   justify-content: center;
   align-items: center;
+  background-image: url(background.jpg);
+  background-position: center;
+  background-size: cover;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+button { 
+  font-family:'Roboto', Arial, sans-serif;
+}
+.container { 
+  width: 30vw;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #13ff17;
+  border-top: 3px solid #13ff17;
+  border-bottom: 3px solid #13ff17;
+}
+#question-container { 
+
+}
+.title { 
+  font-size: 36px;
+  margin: 40px 0;
+}
+#question-index { 
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+#job-name { 
+  font-size: 48px;
+  margin: 50px 0;
+  text-align: center;
+}
+#question-text { 
+
+}
+#answer-buttons { 
+  margin: 10px 0;
+}
+#quote { 
+  width: 80%;
+  font-style: italic;
+}
+#start-btn, #try-again-button { 
+  margin: 40px 0;
+  width: 120px;
+  height: 30px;
+  padding: 0px;
+  text-align: center;
 }
 .answer-btn-grid { 
   display: flex;
@@ -15,13 +67,14 @@ body {
 .btn { 
   outline: none;
   background-color: black;
-  color: green; 
+  color: #13ff17; 
   border: none;
-  padding: 20px;
+  padding: 10px;
   margin: 5px;
 }
 .btn:hover { 
-  border: 3px solid green;
+  background-color: #13ff17;
+  color: #002000;
 }
 
 .start-screen { 
@@ -30,11 +83,12 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-
-
-
-
+.quiz-result { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .hide { 
   display: none;
 }
