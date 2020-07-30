@@ -26,6 +26,9 @@ button {
   border-top: 3px solid #13ff17;
   border-bottom: 3px solid #13ff17;
 }
+.start-btn-container { 
+  display: flex; 
+}
 #question-container { 
 
 }
@@ -53,12 +56,15 @@ button {
   width: 80%;
   font-style: italic;
 }
-#start-btn, #try-again-button { 
-  margin: 40px 0;
+#start-btn, #try-again-button, #start-btn-ru { 
+  margin: 40px 10px;
   width: 120px;
   height: 30px;
   padding: 0px;
   text-align: center;
+}
+.title-text { 
+  margin-top: 20px;
 }
 .answer-btn-grid { 
   display: flex;
@@ -89,7 +95,7 @@ button {
   align-items: center;
   flex-direction: column;
 }
-@media all and (max-width: 500px) { 
+@media (max-width: 500px) { 
   .container { 
     width: 100vw;
   }

@@ -15,6 +15,7 @@ const resultAttributes = {
   "Repair": 0   
 }
 const startBtn = document.querySelector('#start-btn');
+const startBtnRU = document.querySelector('#start-btn-ru');
 const startScreen = document.querySelector('.start-screen');
 const questionContainer = document.querySelector('#question-container');
 const questionTextElement = document.querySelector('#question-text');
@@ -25,19 +26,36 @@ const tryAgainBtn = document.querySelector('#try-again-button');
 const jobNameField = document.querySelector('#job-name');
 const quoteField = document.querySelector('#quote');
 let questionOrderIndexGlobal = 0;
+let questionIndexElementText = "Question ";
 
-var requestURL ="assets/questions.json";
-var request = new XMLHttpRequest();
-request.open('GET',requestURL);
-request.responseType = 'json';
-request.send();
 
-request.onload = function() { 
-  questions = request.response.qst;
-  results = request.response.result; 
-  startBtn.addEventListener('click', startGame);  
-}
-
+startBtn.addEventListener('click', () => { 
+  var requestURL ="assets/questions.json";
+  var request = new XMLHttpRequest();
+  request.open('GET',requestURL);
+  request.responseType = 'json';
+  request.send();
+  request.onload = function() { 
+    questions = request.response.qst;
+    results = request.response.result; 
+    startGame();  
+  }
+});
+startBtnRU.addEventListener('click', ()=> { 
+  var requestURL="assets/questionsRU.json";
+  var request = new XMLHttpRequest();
+  request.open('GET',requestURL);
+  request.responseType = 'json';
+  request.send();
+  request.onload = function() { 
+    questions = request.response.qst;
+    results = request.response.result; 
+    questionIndexElementText = "Вопрос ";
+    tryAgainBtn.innerText = "Попробовать снова!";
+    tryAgainBtn.style.height = "40px";
+    startGame();  
+  }
+})
 
 
 
@@ -60,7 +78,7 @@ function showNextQuestion(questionOrderIndex) {
   if (questionOrderIndex === 10) { 
     showFinal(); 
   } else {
-    questionIndexElement.innerText ="Question " + questions[questionOrderIndex].questionIndex;  
+    questionIndexElement.innerText =questionIndexElementText + questions[questionOrderIndex].questionIndex;  
     questionTextElement.innerText = questions[questionOrderIndex].questionText;
     questions[questionOrderIndex].answers.forEach(answer => {
       const answerButton = document.createElement('button');
